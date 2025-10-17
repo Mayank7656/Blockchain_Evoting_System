@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting DApp</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <script defer src="app.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      padding: 20px;
+      color: #333;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      color: white;
+      font-weight: bold;
+    }
+    #connectWallet {
+      background-color: #007bff;
+    }
+    #votingToggle {
+      background-color: #dc3545;
+      transition: background-color 0.3s;
+    }
+    input {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .section {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .candidate {
+      padding: 6px 0;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🗳 Ethereum Voting DApp</h2>
+  <button id="connectWallet" onclick="connectWallet()">🔗 Connect Wallet</button>
+  <p id="walletAddress">Not connected</p>
+
+  <div class="section">
+    <h3>⚙️ Voting Control</h3>
+    <button id="votingToggle" onclick="toggleVoting()">🔴 Voting: OFF</button>
+  </div>
+
+  <div class="section">
+    <h3>👤 Add Candidate</h3>
+    <input id="candidateName" placeholder="Enter candidate name">
+    <button style="background:#28a745;" onclick="addCandidate()">Add</button>
+  </div>
+
+  <div class="section">
+    <h3>🗳 Vote</h3>
+    <input id="voteName" placeholder="Candidate name to vote">
+    <button style="background:#ff9800;" onclick="vote()">Vote</button>
+  </div>
+
+  <div class="section">
+    <h3>📊 Candidates & Results</h3>
+    <button style="background:#007bff;" onclick="loadCandidates()">Refresh List</button>
+    <div id="candidateList"></div>
+  </div>
+
+</body>
+</html>
